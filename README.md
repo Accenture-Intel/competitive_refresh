@@ -81,13 +81,12 @@ Different instances require different instances and setup before running the ben
 ```
 
 ## Benchmark-Specific Code Deployment and Results
-- parameters, installs and code deployments, results
+ 
+**SHOW LINK OF HOW TO GET DATASET!**
 
 ### Food Demand Forecasting - XGBoost Machine Learning
 
 #### Description and Dataset
-
-#### Parameters
 
 #### Running the Benchmark
 Once inside the xgboost folder, open a Jupyter Notebook and run the **food_demand_forecasting.ipynb** notebook file.
@@ -99,8 +98,6 @@ Once inside the xgboost folder, open a Jupyter Notebook and run the **food_deman
 - use the jupyter specific env with tensorflow!
 
 #### Description and Dataset
-
-#### Parameters
 
 #### Running the Benchmark
 If on an m6i or m6a instance, open Jupyter Notebook and run the **cnn_pneumonia.ipynb** inside the **conda_tensorflow2_p39** environment, which can be accessed through the *New* dropdown on the top right of the screen.
@@ -116,9 +113,8 @@ If on a t4g or m6g instance, simply run the **cnn_pneumonia.py** script from the
 
 #### Description and Dataset
 
-#### Parameters
-
 #### Running the Benchmark
+If on an m6i or m6a instance, run the **mortgage_prediction_daal_and_stock.py** script in your terminal (alternatively you can also run the .ipynb). If on a t4g or m6g, run the **mortgage_prediction_stock_only.py** script, because the Intel OneAPI daal4py software optimizer isn't compatible with ARM-based instances.
 
 #### Results
 
@@ -127,8 +123,6 @@ If on a t4g or m6g instance, simply run the **cnn_pneumonia.py** script from the
 
 #### Description and Dataset
 
-#### Parameters
-
 #### Running the Benchmark
 
 #### Results
@@ -136,99 +130,10 @@ If on a t4g or m6g instance, simply run the **cnn_pneumonia.py** script from the
 ## Appendix
 
 ### Sources
+- oneapi
+- all the diff datasets
 
 ## Used By
 
 This project is used by the following companies:
 ![ACN-Intel_logo](https://user-images.githubusercontent.com/91902558/157770015-ea092843-c4ee-4fb4-8207-31c0368d718b.png)
-
-
-
-
-
-### Purpose 
-The purpose behind tuning and testing our hyperparameters on each of the three platforms is to assess the respective platforms’ capabilities and see how efficiently and accurately each one is under the same circumstances.
-
-A hyperparameter framework is an automated framework that choses randomized hyperparameters for a machine learning model. The model uses grid and random search to test all assumptions and hyperparameters to automatically discover optimal results. This hyperparameter framework eliminates the need for manual search by using the time efficient production of realistic results. If we were to do this manually it would be extremely time-consuming and inefficient as there’s millions of possible hyperparameters but only a few that you would want to use.
-The frameworks are as follows:
-·       OPTUNA
-·       HyperOpt
-·       SigOpt
- 
-### F1 score
- 
-We tested each of the framework’s performance based on training time and accuracy. We are defining training time as the amount of time in minutes that it took for each framework to complete 100 trials of hyperparameter optimization. Accuracy in this study by the respective F1 scores.
- 
-F1 is: $$ (Precision * recall)/(precion + recall) = TP/(TP + ½(FP + FN) $$
-The scale is 0 to 1; 1 indicating perfect precision and recall, 0 indicating the worst of both. 
-We use a F1 score instead of a accuracy score because an accuracy score would lead to incorrect and skewed results. An accuracy score looks at what has been correctly guessed whether they are positive or negative. That’s where F1 score comes in. Since we’re working with randomized parameters, we need to also know how many were wrong in order to better fine tune our parameters to meet our needs.
-
-### Parameters  
-Below is an visualization detailing the parameters and environment. This experiment utilizes the following software environment setup:
-<div align="center">
- 
-| Machine Learning Solution | Software Specifications                                   |
-| ------------------------- | ----------------------------------------------------------|
-| ML Application            | Classification                                            |
-| ML Model                  | XGBoost                                                   |
-| ML Dataset                | Higgs Dataset                                             |
-| Hardware Targets          | CPUs                                                      |
-| AWS EC2 Instance(s)       | Intel Ice Lake m6i.4xlarge                                |
-
-</div>
- 
-## Environment Setup & Code Deployment
-Below are sets of instructions to follow to run the XGBoost scripts. The instructions will take you from start to finish, showing you how to setup the DLAMI, environment, library installs, and code deployment.
-
-### Intel Ice Lake m6i.4xlarge ![image](http://badges.github.io/stability-badges/dist/stable.svg)
-Please follow the instructions given below for setting up the environment. The guide will walk you through the process of setting up your system to run the model on the m6i EC2 instance.
-#### Launching the Deep Learning AMI (DLAMI)
-To launch the DLAMI, go to your AWS EC2 page and click 'Launch instances'.
-![image](https://user-images.githubusercontent.com/91902558/157768843-a3a73db5-9e01-45c2-ac0b-285fa11d6c46.png)
-
-In the searchbar, search 'Deep Learning AMI' and select AWS Marketplace. From the options, select the **Deep Learning AMI (Ubuntu 18.04) Version 57.0** option and press continue on the prompt.
-![image](https://user-images.githubusercontent.com/91902558/157768743-dc568c48-5cc6-4951-b81d-ba24d6f6db55.png)
-
-After pressing continue on the prompt, select the **m6i** instance from the _All inistance families_ drop-down as recommended for this AMI and configure the instance details as needed. Click on the **Review and Launch** and **Launch** buttons at the bottom right corner of your screen, and follow the steps for key pairs.
-![image](https://user-images.githubusercontent.com/91902558/157769116-01fc2a0a-4846-479f-b65f-2fe75df3468e.png)
-
-Once all of that is complete, you can launch & connect to the Deep Learning AMI (Ubuntu 18.04) Version 57.0
-
-#### Cloning into Repo for Install and Code Deployment 
-- clone into repo
-To access the scripts and install requirements from one place, clone into the Hypothesis_Testing repository. In the repository you will find several scripts and documents necessary for running the workloads, including required library installs.
-```
-pip install xgboost
-pip install scikit-learn
-pip install numpy
-pip install optuna
-pip install pandas
-pip install hyperopt
-git clone https://github.com/Accenture-Intel/Hyperparameter_Tuning
-cd Hyperparameter_Tuning
-python3 xgb_stock.py
-```
-
-_Note: Additionally, you can use the following alternative files to run the workloads as part of the benchmark: `xgb_hyperopt.py` ; `xgb_optuna.py` ; `xgb_sigopt.py`
-
-## Results 
-Below is a chart of our results from the tests we conducted. In the end, the total tuning time for SigOpt is 1.93x faster than Optuna and 1.5x faster than Hyperopt. F1 score for each was SigOpt with 0.7596, Optuna 0.7612, and Hyperopt with 0.7611.
-
-![image](https://user-images.githubusercontent.com/107082305/173399987-77cece57-24ec-4969-ac1c-5b37933886d6.png)
-
-
-## Appendix 
-### Parameters
-Below are the parameters and their respective ranges tuned in the hyperparameter tuning process
-![image](https://user-images.githubusercontent.com/107082305/173400160-65ddd7c8-7420-4096-9226-980cdb511628.png)
-
-### Sources
-- http://hyperopt.github.io/hyperopt/
-- https://optuna.org/
-- https://sigopt.com/
-
-## Used By
-
-This project is used by the following companies:
-![ACN-Intel_logo](https://user-images.githubusercontent.com/91902558/157770015-ea092843-c4ee-4fb4-8207-31c0368d718b.png)
-
