@@ -13,7 +13,7 @@
  - [Accenture - Intel Partnership](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#accenture---intel-partnership)
  - [Benchmark Details](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#benchmark-details)
  - [Environment Setup & Code Deployment](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#environment-setup--code-deployment)
- - [Results](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#results)
+ - [Benchmark-Specific Code Deployment and Results](https://github.com/Accenture-Intel/competitive_refresh/blob/main/README.md#benchmark-specific-code-deployment-and-results)
  - [Appendix](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#appendix)
 
 ## Description
