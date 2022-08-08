@@ -64,12 +64,12 @@ The Graviton2 instances run on an ARM-based processor rather than x86 like Intel
 Different instances require different instances and setup before running the benchmarks. Please run the below commands in your terminal after ssh-ing into the appropriate EC2 instance to setup packages and clone into the repo.
 
 #### Intel Ice Lake m6i and AMD EPYC m6a
-'''
+```
 - git clone https://github.com/Accenture-Intel/competitive_refresh
-'''
+```
 
 #### AWS Graviton2 t4g & m6g
-'''
+```
 - curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh -o Miniconda3-latest-Linux-aarch64.sh
 - bash Miniconda3-latest-Linux-aarch64.sh
 *restart your EC2 instance*
@@ -78,19 +78,60 @@ Different instances require different instances and setup before running the ben
 - conda install -c conda-forge tensorflow jupyter pandas
 - pip install sklearn
 - git clone https://github.com/Accenture-Intel/competitive_refresh
-'''
+```
 
 ## Benchmark-Specific Code Deployment and Results
 - parameters, installs and code deployments, results
 
 ### Food Demand Forecasting - XGBoost Machine Learning
 
+#### Description and Dataset
+
+#### Parameters
+
+#### Running the Benchmark
+Once inside the xgboost folder, open a Jupyter Notebook and run the **food_demand_forecasting.ipynb** notebook file.
+
+#### Results
+
+
 ### Chest X-Ray Pneumonia Detection - CNN Deep Learning
 - use the jupyter specific env with tensorflow!
 
+#### Description and Dataset
+
+#### Parameters
+
+#### Running the Benchmark
+If on an m6i or m6a instance, open Jupyter Notebook and run the **cnn_pneumonia.ipynb** inside the **conda_tensorflow2_p39** environment, which can be accessed through the *New* dropdown on the top right of the screen.
+
+<img width="280" alt="Screenshot 2022-08-08 155854" src="https://user-images.githubusercontent.com/107268111/183530071-6ae71cf9-d961-478d-bf9f-fd01144b57b5.png">
+
+If on a t4g or m6g instance, simply run the **cnn_pneumonia.py** script from the **tf_bench** conda environment in your terminal.
+
+#### Results
+
+
 ### Mortgage Loan Prediction - Random Forest Regression
 
+#### Description and Dataset
+
+#### Parameters
+
+#### Running the Benchmark
+
+#### Results
+
+
 ### CoLA Grammatical Acceptability - BERT NLP Deep Learning
+
+#### Description and Dataset
+
+#### Parameters
+
+#### Running the Benchmark
+
+#### Results
 
 ## Appendix
 
