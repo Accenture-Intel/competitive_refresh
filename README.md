@@ -6,15 +6,12 @@
  <img src ='https://forthebadge.com/images/badges/open-source.svg'>
 </p>
 
-# UPDATE TOC SECTION BY SECTION
-
 ## 📑 Table of Contents 📑
  - [Description](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#description)
  - [Accenture - Intel Partnership](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#accenture---intel-partnership)
  - [Benchmark Details](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#benchmark-details)
  - [Environment Setup](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#environment-setup)
  - [Benchmark-Specific Code Deployment and Results](https://github.com/Accenture-Intel/competitive_refresh/blob/main/README.md#benchmark-specific-code-deployment-and-results)
- - [Appendix](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#appendix)
 
 ## Description
 
@@ -81,8 +78,6 @@ Different instances require different instances and setup before running the ben
 ```
 
 ## Benchmark-Specific Code Deployment and Results
- 
-**SHOW LINK OF HOW TO GET DATASET!**
 
 ### Food Demand Forecasting - XGBoost Machine Learning
 
@@ -117,15 +112,15 @@ Below are two graphs of the results of our tests. Both compare the relative pred
 ### Mortgage Loan Prediction - Random Forest Regression
 
 #### Description and Dataset
-This benchmark uses a Random Forest 
-
-This benchmark uses an Convolutional Neural Network to predict whether a given chest X-ray shows that the patient has pneumonia. The dataset of 5,863 images of normal and pneumonic patients has already been downloaded in the repository, but can be found [here](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia) for more information.
+This benchmark uses a Random Forest regression model to predict the optimal mortgage loan amount to lend to a customer to minimize default risk. The dataset of over 2 billion rows and 108 columns should be downloaded from [this](https://capitalmarkets.fanniemae.com/credit-risk-transfer/single-family-credit-risk-transfer/fannie-mae-single-family-loan-performance-data) link. Doublecheck that the downloaded ZIP file's filename is exactly **ML_2020Q3Mortgage.zip**, and that the *ML_2020Q3Mortgage.csv* file that is extracted from that is in the same random_forest folder as the .py and .ipynb scripts. 
 
 #### Running the Benchmark
 If on an m6i or m6a instance, run the **mortgage_prediction_daal_and_stock.py** script in your terminal (alternatively you can also run the .ipynb). If on a t4g or m6g, run the **mortgage_prediction_stock_only.py** script, because the Intel OneAPI daal4py software optimizer isn't compatible with ARM-based instances.
 
 #### Results
+Below are two graphs of the results of our tests. Both compare the relative prediction time improvements of each instance and software compared to the Intel Ice Lake m6i instance running stock scikit-learn Random Forests. The left graph compares pure prediction performance gain, and the right one compares the same performance gain but relative to the per-unit cost of each of the instances. In both cases, **Ice Lake with Intel daal4py optimizations have the highest metrics** across the tests. 
 
+<img width="887" alt="Screenshot 2022-08-09 111305" src="https://user-images.githubusercontent.com/107268111/183729388-428ccdff-a339-47ce-b9eb-66e3fa040a0d.png">
 
 ### CoLA Grammatical Acceptability - BERT NLP Deep Learning
 
@@ -134,12 +129,6 @@ If on an m6i or m6a instance, run the **mortgage_prediction_daal_and_stock.py** 
 #### Running the Benchmark
 
 #### Results
-
-## Appendix
-
-### Sources
-- oneapi
-- all the diff datasets
 
 ## Used By
 
