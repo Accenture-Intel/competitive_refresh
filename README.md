@@ -12,7 +12,7 @@
  - [Description](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#description)
  - [Accenture - Intel Partnership](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#accenture---intel-partnership)
  - [Benchmark Details](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#benchmark-details)
- - [Environment Setup & Code Deployment](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#environment-setup--code-deployment)
+ - [Environment Setup](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#environment-setup)
  - [Benchmark-Specific Code Deployment and Results](https://github.com/Accenture-Intel/competitive_refresh/blob/main/README.md#benchmark-specific-code-deployment-and-results)
  - [Appendix](https://github.com/Accenture-Intel/competitive_refresh/edit/main/README.md#appendix)
 
@@ -34,7 +34,7 @@ In order to update Intel processor positioning relative to competitors' most rec
 
 <img width="855" alt="Screenshot 2022-08-08 134510" src="https://user-images.githubusercontent.com/107268111/183511220-e6fd1268-c08f-407d-8358-3fd8813656de.png">
 
-## Environment Setup & Code Deployment
+## Environment Setup
 
 ### AWS Instance Launch
 
@@ -87,6 +87,7 @@ Different instances require different instances and setup before running the ben
 ### Food Demand Forecasting - XGBoost Machine Learning
 
 #### Description and Dataset
+This benchmark uses an XGBoost regression model to predict demand for a meal delivery company. Given a dataset with 15 features and over 500,000 meal deliveries over 145 weeks, the goal is to predict the demand for various raw materials for the following 10 weeks. [Here](https://www.kaggle.com/datasets/kannanaikkal/food-demand-forecasting) is a link to the dataset, but it is already in the repo and doesn't need to be downloaded. Once you've downloaded the dataset, move the *train.csv, test.csv, meal_info.csv, fulfilment_center_info.csv,* and *sample_submission.csv* files into the same xgboost folder where the *food_demand_forecasting.ipynb* file is.
 
 #### Running the Benchmark
 Once inside the xgboost folder, open a Jupyter Notebook and run the **food_demand_forecasting.ipynb** notebook file.
