@@ -29,7 +29,7 @@ To learn more about this partnership, follow this <a href="https://www.accenture
 ### Purpose
 In order to update Intel processor positioning relative to competitors' most recent AWS instance offerings, we compared the performance of the Intel Ice Lake m6i against the AMD EPYC m6a and the AWS Graviton2 t4g & m6g. Using four use-cases meant to test commonly-used models and algorithms, we analyzed each instance's prediction time to determine a performance and price-to-performance metric relative to eachother, comparing both the stock model and the Intel oneAPI speedup accessible on the Intel and AMD instances.
 
-<img width="855" alt="Screenshot 2022-08-08 134510" src="https://user-images.githubusercontent.com/107268111/183511220-e6fd1268-c08f-407d-8358-3fd8813656de.png">
+<img width="857" alt="Screenshot 2022-08-09 111626" src="https://user-images.githubusercontent.com/107268111/183730984-5bbc3167-e237-43de-acbc-a5c9fb33226e.png">
 
 ## Environment Setup
 
@@ -112,7 +112,7 @@ Below are two graphs of the results of our tests. Both compare the relative pred
 ### Mortgage Loan Prediction - Random Forest Regression
 
 #### Description and Dataset
-This benchmark uses a Random Forest regression model to predict the optimal mortgage loan amount to lend to a customer to minimize default risk. The dataset of over 2 billion rows and 108 columns should be downloaded from [this](https://capitalmarkets.fanniemae.com/credit-risk-transfer/single-family-credit-risk-transfer/fannie-mae-single-family-loan-performance-data) link. Doublecheck that the downloaded ZIP file's filename is exactly **ML_2020Q3Mortgage.zip**, and that the *ML_2020Q3Mortgage.csv* file that is extracted from that is in the same random_forest folder as the .py and .ipynb scripts. 
+This benchmark uses a Random Forest regression model to predict the optimal mortgage loan amount to lend to a customer to minimize default risk. The dataset of over 2 billion rows and 108 columns should be downloaded from [this](https://capitalmarkets.fanniemae.com/credit-risk-transfer/single-family-credit-risk-transfer/fannie-mae-single-family-loan-performance-data) link. Doublecheck that the downloaded ZIP file's filename is exactly **ML_2020Q3Mortgage.zip**, and that the **ML_2020Q3Mortgage.csv** file that is extracted from that is in the same random_forest folder as the .py and .ipynb scripts. 
 
 #### Running the Benchmark
 If on an m6i or m6a instance, run the **mortgage_prediction_daal_and_stock.py** script in your terminal (alternatively you can also run the .ipynb). If on a t4g or m6g, run the **mortgage_prediction_stock_only.py** script, because the Intel OneAPI daal4py software optimizer isn't compatible with ARM-based instances.
