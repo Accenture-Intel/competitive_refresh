@@ -87,18 +87,20 @@ Different instances require different instances and setup before running the ben
 ### Food Demand Forecasting - XGBoost Machine Learning
 
 #### Description and Dataset
-This benchmark uses an XGBoost regression model to predict demand for a meal delivery company. Given a dataset with 15 features and over 500,000 meal deliveries over 145 weeks, the goal is to predict the demand for various raw materials for the following 10 weeks. [Here](https://www.kaggle.com/datasets/kannanaikkal/food-demand-forecasting) is a link to the dataset, but it is already in the repo and doesn't need to be downloaded. Once you've downloaded the dataset, move the *train.csv, test.csv, meal_info.csv, fulfilment_center_info.csv,* and *sample_submission.csv* files into the same xgboost folder where the *food_demand_forecasting.ipynb* file is.
+This benchmark uses an XGBoost regression model to predict demand for a meal delivery company. Given a dataset with 15 features and over 500,000 meal deliveries over 145 weeks, the goal is to predict the demand for various raw materials for the following 10 weeks. [Here](https://www.kaggle.com/datasets/kannanaikkal/food-demand-forecasting) is a link to the dataset for more information, but the CSVs are already in the repository and don't need to be downloaded. To learn more about the XGBoost algorithm, please check out our [XGBoost repo](https://github.com/Accenture-Intel/XGBoost#description-1).
 
 #### Running the Benchmark
 Once inside the xgboost folder, open a Jupyter Notebook and run the **food_demand_forecasting.ipynb** notebook file.
 
 #### Results
+Below are two graphs of the results of our tests. Both compare the relative prediction time improvements of each instance and software compared to the Intel Ice Lake m6i instance running stock XGBoost. The left graph compares pure prediction performance gain, and the right one compares the same performance gain but relative to the per-unit cost of each of the instances. In both cases, **Ice Lake with Intel daal4py optimizations have the highest metrics** across the tests. 
 
+<img width="875" alt="Screenshot 2022-08-09 103302" src="https://user-images.githubusercontent.com/107268111/183721289-384b4185-5a26-48d1-aa92-c5528235635d.png">
 
 ### Chest X-Ray Pneumonia Detection - CNN Deep Learning
-- use the jupyter specific env with tensorflow!
 
 #### Description and Dataset
+This benchmark uses an Convolutional Neural Network to predict whether a given chest X-ray shows that the patient has pneumonia. The dataset of 5,863 images of normal and pneumonic patients has already been downloaded in the repository, but can be found [here](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia) for more information. For more information about CNN, please check out our [CNN Hyperparameter Tuning repo](https://github.com/Accenture-Intel/Hyperparameter_Tuning/tree/main/cnn#description-1).
 
 #### Running the Benchmark
 If on an m6i or m6a instance, open Jupyter Notebook and run the **cnn_pneumonia.ipynb** inside the **conda_tensorflow2_p39** environment, which can be accessed through the *New* dropdown on the top right of the screen.
@@ -108,11 +110,16 @@ If on an m6i or m6a instance, open Jupyter Notebook and run the **cnn_pneumonia.
 If on a t4g or m6g instance, simply run the **cnn_pneumonia.py** script from the **tf_bench** conda environment in your terminal.
 
 #### Results
+Below are two graphs of the results of our tests. Both compare the relative prediction time improvements of each instance and software compared to the Intel Ice Lake m6i instance. The Ice Lake and EPYC instances are running built-in Intel oneDNN software optimizations on top of the Tensorflow neural network package, and the Graviton2 instances are running stock Tensorflow. The left graph compares pure prediction performance gain, and the right one compares the same performance gain but relative to the per-unit cost of each of the instances. In both cases, **Ice Lake with Intel oneDNN optimizations has the highest metrics** across the tests. 
 
+<img width="875" alt="Screenshot 2022-08-09 104925" src="https://user-images.githubusercontent.com/107268111/183724320-a0026312-16cc-4a56-8152-caade48d7661.png">
 
 ### Mortgage Loan Prediction - Random Forest Regression
 
 #### Description and Dataset
+This benchmark uses a Random Forest 
+
+This benchmark uses an Convolutional Neural Network to predict whether a given chest X-ray shows that the patient has pneumonia. The dataset of 5,863 images of normal and pneumonic patients has already been downloaded in the repository, but can be found [here](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia) for more information.
 
 #### Running the Benchmark
 If on an m6i or m6a instance, run the **mortgage_prediction_daal_and_stock.py** script in your terminal (alternatively you can also run the .ipynb). If on a t4g or m6g, run the **mortgage_prediction_stock_only.py** script, because the Intel OneAPI daal4py software optimizer isn't compatible with ARM-based instances.
