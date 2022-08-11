@@ -73,7 +73,8 @@ Different instances require different instances and setup before running the ben
 - conda create -n tf_bench python=3.8
 - conda activate tf_bench
 - conda install -c conda-forge tensorflow jupyter pandas
-- pip install sklearn
+- pip install sklearn tensorflow-aarch64
+- export LD_PRELOAD=/usr/lib/aarch64-linux-gnu-libgomp.so.1
 - git clone https://github.com/Accenture-Intel/competitive_refresh
 ```
 
@@ -125,10 +126,15 @@ Below are two graphs of the results of our tests. Both compare the relative pred
 ### CoLA Grammatical Acceptability - BERT NLP Deep Learning
 
 #### Description and Dataset
+This benchmark uses a BERT neural network to judge the grammatical acceptability of a sentence. This Corpus of Linguistic Acceptability (CoLA) dataset is a set of ~10,000 English sentences that have been marked as grammatical or ungrammatical from published linguistics literature, and is a common test used to determine how effective a model is at Natural Language Processing along with other [GLUE Benchmarks](https://gluebenchmark.com). This dataset will be loaded from the script you run, and nothing needs to be downloaded beforehand. For more information about BERT and NLP, please check out our [Fine-Tune BERT for Text Classification repo](https://github.com/Accenture-Intel/Fine-Tune-BERT-for-Text-Classification#bert-for-text-classification).
 
 #### Running the Benchmark
+There are two options for how to run this test. You could either run the **bert_cola.ipynb** notebook in a Jupyter Notebook, orthe **bert_cola.py** script in your terminal. If you're doing this on an Intel or AMD instance, make sure that you either run the .ipynb from the same **conda_tensorflow2_p39** environment used in the CNN X-Ray test above, or you first type ```source activate tensorflow2_p39``` into your terminal before running the script to be sure you have all the optimized libraries activated
 
 #### Results
+Below are two graphs of the results of our tests. Both compare the relative prediction time improvements of each instance and software compared to the Intel Ice Lake m6i instance. The left graph compares pure prediction performance gain, and the right one compares the same performance gain but relative to the per-unit cost of each of the instances. In both cases, **Ice Lake with Intel oneDNN optimizations has the highest metrics** across the tests. 
+
+<img width="881" alt="Screenshot 2022-08-11 130401" src="https://user-images.githubusercontent.com/107268111/184231351-8dc7ced5-b6ae-46f8-a63f-1d9e5bf24f74.png">
 
 ## Used By
 
