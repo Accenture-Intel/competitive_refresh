@@ -129,11 +129,9 @@ Below are two graphs of the results of our tests. Both compare the relative pred
 This benchmark uses a BERT neural network to judge the grammatical acceptability of a sentence. This Corpus of Linguistic Acceptability (CoLA) dataset is a set of ~10,000 English sentences that have been marked as grammatical or ungrammatical from published linguistics literature, and is a common test used to determine how effective a model is at Natural Language Processing along with other [GLUE Benchmarks](https://gluebenchmark.com). This dataset will be loaded from the script you run, and nothing needs to be downloaded beforehand. For more information about BERT and NLP, please check out our [Fine-Tune BERT for Text Classification repo](https://github.com/Accenture-Intel/Fine-Tune-BERT-for-Text-Classification#bert-for-text-classification).
 
 #### Running the Benchmark
-Before running the test, please run the following commands in your terminal:
+Before running the test, please run the following command in your terminal:
 ```
-pip install datasets
-pip install evaluate
-pip install transformers[sentencepiece]
+pip install datasets evaluate transformers[sentencepiece]
 ```
 
 There are two options for how to run this test. You could either run the **bert_cola.ipynb** notebook in a Jupyter Notebook, orthe **bert_cola.py** script in your terminal. If you're doing this on an Intel or AMD instance, make sure that you either run the .ipynb from the same **conda_tensorflow2_p39** environment used in the CNN X-Ray test above, or you first type ```source activate tensorflow2_p39``` into your terminal before running the script to be sure you have all the optimized libraries activated
