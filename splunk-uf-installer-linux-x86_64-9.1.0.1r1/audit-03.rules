@@ -1,9 +1,0 @@
-
-# And finally collect any commands issues by root or a user
--a exit,always -F arch=b32 -C auid!=euid -F euid=0 -F auid!=4294967295 -S execve -F key=acnis-command-executed-as-root
--a exit,always -F arch=b32 -F euid=0 -F auid!=4294967295 -S execve -F key=acnis-command-executed-by-root
--a exit,always -F arch=b32 -F euid>=1000 -F auid!=4294967295 -S execve -F key=acnis-command-executed-by-user
-
--a exit,always -F arch=b64 -C auid!=euid -F euid=0 -F auid!=4294967295 -S execve -F key=acnis-command-executed-as-root
--a exit,always -F arch=b64 -F euid=0 -F auid!=4294967295 -S execve -F key=acnis-command-executed-by-root
--a exit,always -F arch=b64 -F euid>=1000 -F auid!=4294967295 -S execve -F key=acnis-command-executed-by-user
